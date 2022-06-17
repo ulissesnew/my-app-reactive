@@ -1,5 +1,29 @@
 # MyFirstApp
 
+## Projeto para praticar os principais conceitos  de angular flamework com RXJS (extensoes reativas para javascript ) https://rxjs.dev/guide/overview.
+
+## Utilizei de um template inicial usado no curso da ALURA 
+https://www.alura.com.br/conteudo/angular-rxjs-introducao-programacao-reativa
+
+
+## Porque usar RXJS ?
+Angular e construido no conceito de programacao reativa , utilizando em seu core RXJS para manipular eventos de rotas, formularios, http requests, interceptors, guards e outros utilizando de , Observers, Subjects, RXJS operadores ...
+Usar programacao reativa traz os seguintes beneficios: 
+- RXJS e uma implementacao de Extensoes Reativas (ReactiveX https://reactivex.io/) usadas em diversas linguagens de programacao  . 
+- codigo limpo e mais facil de manter
+- implementa o Observer Patern
+- simplifica multiplas operacoes encadeadas e dependentes com o uso de seus operadores reativos 
+
+- melhora a  experiencia do usuario, entregando informacao com alta velocidade e poucas linhas de codigo 
+- lida muito bem com eventos nativos do navegador como onclick, onchange e outros 
+- alta performance da aplicacao utilizando de poucos recursos computacionais 
+- economia de dados de internet 
+- previne vazamento de memoria 
+- lida muito bem com operacoes asyncronas e orientados a eventos (event emiteer) com observables streams
+- operadores RXJS possui muitos operadores prontos para lidar com a maioria das situacoes envolvendo browsers e servidores (HTTP fluxo)
+- facil manipulacao de complexos estados entre components no front end .
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.1.
 
 ## Development server
