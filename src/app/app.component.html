@@ -1,19 +1,24 @@
 <!-- <app-filtro-reativo></app-filtro-reativo> -->
-<nav class="navbar  fixed-top  navbar-dark bg-dark" >
-  <a  routerLink="/" class="navbar-brand p-2" >MyFirst App</a>
-  <a  routerLink="/" class="navbar-brand p-2" >Home</a>
+<nav class="navbar fixed-top navbar-dark bg-dark">
+  <a routerLink="/" class="navbar-brand p-2">MyFirst App</a>
+  <a routerLink="/" class="navbar-brand p-2">Home</a>
 </nav>
 
-<div class="container-fluid mt-5 pt-5 w-75">
+<app-container>
   <div class="row">
     <h1>Exemplos</h1>
   </div>
- 
+
   <div class="row">
     <div class="col-sm-3">
-      <button class="btn btn-success" routerLink="/filtro-reativo">Filtro Reativo</button>
-
+      <app-button routerLink="/filtro-reativo"> Filtro Reativo</app-button>
+    </div>
+    <div class="col-sm-3">
+      <app-button class="btn-info" routerLink="/filtro-reativo">
+        Filtro Reativo
+      </app-button>
     </div>
   </div>
-</div>
+</app-container>
+
 <router-outlet></router-outlet>
