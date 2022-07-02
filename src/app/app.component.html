@@ -1,60 +1,19 @@
-<div style="margin-top: 50px"></div>
-<div class="container">
+<!-- <app-filtro-reativo></app-filtro-reativo> -->
+<nav class="navbar  fixed-top  navbar-dark bg-dark" >
+  <a  routerLink="/" class="navbar-brand p-2" >MyFirst App</a>
+  <a  routerLink="/" class="navbar-brand p-2" >Home</a>
+</nav>
+
+<div class="container-fluid mt-5 pt-5 w-75">
   <div class="row">
-    <div class="col xs-12">
-      <!-- <app-servers></app-servers> -->
-      <div class="alert alert-primary">
-        {{ filter.value | uppercase }}
-      </div>
+    <h1>Exemplos</h1>
+  </div>
+ 
+  <div class="row">
+    <div class="col-sm-3">
+      <button class="btn btn-success" routerLink="/filtro-reativo">Filtro Reativo</button>
 
-      <select class="form-select form-select-lg" [formControl]="filter">
-        <option *ngFor="let s of select$ | async" [value]="s.value">
-          {{ s.name }}
-        </option>
-      </select>
-
-      <div *ngIf="items$" class="d-flex justify-content-start flex-wrap">
-        <div *ngFor="let item of all$ | async as items">
-          <div class="card m-2" style="width: 18rem">
-            <div class="card-header">
-              <span class="badge bg-success">
-                {{ filter.value | titlecase }}
-              </span>
-            </div>
-
-            <div class="card-body">
-              <p class="card-text text-primary">{{ item.title }}</p>
-              <h5 *ngIf="item.name" class="card-text">
-                {{ item.name }}
-                <hr />
-              </h5>
-              <p *ngIf="item.body" class="card-text">{{ item.body }}</p>
-
-              <a
-                *ngIf="item.email"
-                class="card-text"
-                href="mailto:{{ item.email }}"
-              >
-                {{ item.email }}
-                <hr />
-              </a>
-              <a *ngIf="item.website" href="#" class="card-text text-start">
-                {{ item.website }}
-                <hr />
-              </a>
-              <a *ngIf="item.phone" href="#" class="card-text text-start">
-                {{ item.phone }}
-                <hr />
-              </a>
-              <div class="card-footer">
-                <span class="badge bg-secondary">{{ item.id }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-
-    <router-outlet></router-outlet>
   </div>
 </div>
+<router-outlet></router-outlet>
