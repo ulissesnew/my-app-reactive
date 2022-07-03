@@ -1,62 +1,60 @@
-<div style="margin-top: 50px"></div>
-<div class="container-fluid w-75">
-  <div class="row">
-    <div class="col xs-12">
-      <div class="alert alert-primary">
-        {{ filter.value | uppercase }}
-      </div>
-
-      <select class="form-select form-select-lg" [formControl]="filter">
-        <option *ngFor="let s of select$ | async" [value]="s.value">
-          {{ s.name }}
-        </option>
-      </select>
-
-      <div *ngIf="items$" class="d-flex justify-content-between flex-wrap">
-        <div *ngFor="let item of all$ | async as items">
-          <app-card
-            *ngIf="filter.value === 'posts'"
-            [tag]="filter.value"
-            [title]="item.title"
-            [body]="item.body"
-            [userId]="item.userId"
-            [id]="item.id"
-          ></app-card>
-
-          <app-card
-            *ngIf="filter.value === 'todos'"
-            [tag]="filter.value"
-            [title]="item.title"
-            [userId]="item.userId"
-            [id]="item.id"
-          ></app-card>
-
-          <app-card
-            *ngIf="filter.value === 'users'"
-            [tag]="filter.value"
-            [title]="item.name"
-            [userId]="item.userId"
-            [id]="item.id"
-          >
-            <a
-              *ngIf="item.email"
-              class="card-text"
-              href="mailto:{{ item.email }}"
-            >
-              {{ item.email }}
-              <hr />
-            </a>
-            <a *ngIf="item.website" href="#" class="card-text text-start">
-              {{ item.website }}
-              <hr />
-            </a>
-            <a *ngIf="item.phone" href="#" class="card-text text-start">
-              {{ item.phone }}
-              <hr />
-            </a>
-          </app-card>
-        </div>
-      </div>
-    </div>
+<app-container>
+  <div class="alert alert-primary">
+    {{ filter.value | uppercase }}
   </div>
+
+  <select class="form-select form-select-lg" [formControl]="filter">
+    <option *ngFor="let s of select$ | async" [value]="s.value">
+      {{ s.name }}
+    </option>
+  </select>
+</app-container>
+
+
+<div *ngIf="items$">
+  <app-container>
+    <div *ngFor="let item of all$ | async as items">
+      <app-card
+        *ngIf="filter.value === 'posts'"
+        [tag]="filter.value"
+        [title]="item.title"
+        [body]="item.body"
+        [userId]="item.userId"
+        [id]="item.id"
+      ></app-card>
+
+      <app-card
+        *ngIf="filter.value === 'todos'"
+        [tag]="filter.value"
+        [title]="item.title"
+        [userId]="item.userId"
+        [id]="item.id"
+      ></app-card>
+
+      <app-card
+        *ngIf="filter.value === 'users'"
+        [tag]="filter.value"
+        [title]="item.name"
+        [userId]="item.userId"
+        [id]="item.id"
+      >
+        <a
+          *ngIf="item.email"
+          class="card-text"
+          href="mailto:{{ item.email }}"
+        >
+          {{ item.email }}
+          <hr />
+        </a>
+        <a *ngIf="item.website" href="#" class="card-text text-start">
+          {{ item.website }}
+          <hr />
+        </a>
+        <a *ngIf="item.phone" href="#" class="card-text text-start">
+          {{ item.phone }}
+          <hr />
+        </a>
+      </app-card>
+    </div>
+  </app-container>
 </div>
