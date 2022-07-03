@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/filtro-reativo/filtro-reativo.module').then(m => m.FiltroReativoModule)
   },
   {
+    path: 'posts',
+    loadChildren: () => import('./pages/posts/posts.module').then(m => m.PostsModule)
+  },
+  {
     path: '',
     redirectTo: '',
     pathMatch: 'full'
