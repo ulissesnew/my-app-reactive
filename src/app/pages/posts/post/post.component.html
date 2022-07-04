@@ -1,0 +1,12 @@
+
+<div *ngIf="post$ | async as post;" >
+  <app-container>
+      <app-card
+      [tag]="'Post: ' + post.id"
+      [title]="post.title"
+      [body]="post.body"
+      [userId]="post.userId"
+      [id]="post.id"
+      ></app-card>
+  </app-container>
+</div>
