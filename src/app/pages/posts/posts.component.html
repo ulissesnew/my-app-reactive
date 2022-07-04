@@ -1,8 +1,9 @@
 
-<div *ngIf="posts$ | async" >
+<div *ngIf="posts$ | async as posts;" >
   <app-container>
-    <div *ngFor="let post of posts$ | async as posts;">
+    <div *ngFor="let post of posts">
       <app-card
+      [routerLink]="['/posts', post.id]"
       [tag]="'posts'"
       [title]="post.title"
       [body]="post.body"
