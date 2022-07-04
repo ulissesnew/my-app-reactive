@@ -11,9 +11,9 @@
 </app-container>
 
 
-<div *ngIf="items$">
+<div *ngIf="all$ | async as all">
   <app-container>
-    <div *ngFor="let item of all$ | async as items">
+    <div *ngFor="let item of all">
       <app-card
         *ngIf="filter.value === 'posts'"
         [tag]="filter.value"
