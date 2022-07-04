@@ -28,17 +28,39 @@ export class PostsService {
   getPosts(): Observable<Post[]> {
     return this.posts$.pipe(
       pluck('data'),
-      tap((x: any) => console.log('getPosts',x.length)),
+      // tap((x: any) => console.log('getPosts',x.length)),
       catchError((err) => {
         return throwError((() => new Error(`Algo deu errado! ${err}`)))
       })
     )
     return this.httpClient.get<Post[]>(`${this.apiUrl}/posts`, this.options)
     .pipe(
-      tap((x: any) => console.log('getPosts',x.length)),
+      // tap((x: any) => console.log('getPosts',x.length)),
       catchError((err) => {
         return throwError((() => new Error(`Algo deu errado! ${err}`)))
       })
+    )
+  }
+
+  getPostId(id: number): Observable<Post> {
+    // return this.httpClient.get<Post>(`${this.apiUrl}/posts/${id}`, this.options)
+    // .pipe(
+    //   tap(console.log),
+    //   catchError((err) => {
+    //   return throwError(() => new Error(`Algo deu errado!, ${err}`))
+    //   })
+    // )
+    return this.posts$.pipe(
+      pluck('data'),
+      map((x) => {
+        const f = x.filter(f => Number(f.id) === Number(id))[0]
+        return f
+      }),
+      catchError((err) => {
+        return throwError(() => new Error(`Algo deu Errado!, ${err}`))
+      }),
+      tap(x => console.log(x)),
+
     )
   }
 }
