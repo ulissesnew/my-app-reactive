@@ -10,17 +10,13 @@ import { User } from './models/users';
   providedIn: 'root'
 })
 export class UsersService {
-  token: any = 123;
-  
-  
   constructor(private httpClient: HttpClient) { 
   }
   private apiUrl = environment.apiUrl;
 
   private options = {
     headers: new HttpHeaders({
-      'Content-type': 'Application/json',
-      Authorization: `Bearer ${this.token}`
+      'Content-type': 'Application/json'
     })
   }
 
@@ -29,17 +25,15 @@ export class UsersService {
   })
 
   getUsers(): Observable<User[]> {
+    /* buscar dado real da internet 
+    * descomente a linha abaixo 
+    */
+    // return this.httpClient.get<User[]>(`${this.apiUrl}/users`, this.options)
+
     return this.users$.pipe(
       pluck('data'),
       catchError((err) => {
         return throwError(() => new Error(`Algo deu errado! ${err}`))
-      })
-    )
-    return this.httpClient.get<User[]>(`${this.apiUrl}/users`, this.options)
-    .pipe(
-      tap(console.log),
-      catchError((err) => {
-        return throwError(() => new Error(`Algo deu errado!  ${err}`) )
       })
     )
   }
