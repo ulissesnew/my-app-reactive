@@ -34,9 +34,9 @@ export class PostsComponent implements OnInit {
       switchMap(s => {
         return  this.postService.getPosts()
       }),
-      map((s: Post[]) => {
+      tap((s: Post[]) => {
         const posts = s.filter(f => f.userId === userId)
-        console.log(posts)
+        // console.log(posts)
         return posts
       })
     )
