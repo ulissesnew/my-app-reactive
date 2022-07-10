@@ -7,6 +7,8 @@ import { USERS } from './data/users';
 import { POSTS } from './data/posts';
 import { Generic } from './models/generic.model';
 import { EnumSelectEndpoint } from '../core/enums/select-endpoint.enum';
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root',
@@ -23,16 +25,14 @@ export class FakeService {
   private posts$: Observable<{ data: Generic[] }> = of({
     data: POSTS,
   });
-  token: string = '123';
 
   private options = {
     headers: new HttpHeaders({
-      'Content-type': 'Application/json',
-      Authorization: `Bearer ${this.token}`,
+      'Content-type': 'Application/json'
     }),
   };
   constructor(private httpClient: HttpClient) {}
-  url: string = 'https://jsonplaceholder.typicode.com';
+    apiUrl: string = environment.apiUrl;
 
   getFake(value?: string): Observable<Generic[]> {
     /* buscar dado real da internet 
@@ -43,7 +43,6 @@ export class FakeService {
 
     if (value === EnumSelectEndpoint.USERS) {
       return this.users$.pipe(
-        tap((x) => console.log(x)),
         pluck('data'),
         map((item) => item.slice(0, 10)),
         catchError((err) => {
@@ -52,7 +51,6 @@ export class FakeService {
       );
     } else if (value === EnumSelectEndpoint.POSTS) {
       return this.posts$.pipe(
-        tap((x) => console.log(x)),
         pluck('data'),
         map((item) => item.slice(0, 10)),
         catchError((err) => {
@@ -61,7 +59,6 @@ export class FakeService {
       );
     }
     return this.all$.pipe(
-      tap((x) => console.log(x)),
       pluck('data'),
       map((item) => item.slice(0, 10)),
       catchError((err) => {
@@ -72,13 +69,9 @@ export class FakeService {
 
   private getOriginal(value?: string): Observable<Generic[]> {
     return this.httpClient
-      .get<Generic[]>(`${this.url}/${value ? value : EnumSelectEndpoint.TODOS}`, this.options)
+      .get<Generic[]>(`${this.apiUrl}/${value ? value : EnumSelectEndpoint.TODOS}`, this.options)
       .pipe(
-        tap((x) => console.log(x)),
         map((item) => item.slice(0, 10)),
-        catchError((err) => {
-          return throwError(() => new Error(`Algo deu errado! ${err}`));
-        })
       );
   }
 }
