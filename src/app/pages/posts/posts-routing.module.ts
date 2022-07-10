@@ -6,12 +6,16 @@ import { PostsComponent } from './posts.component';
 const routes: Routes = [
   {
     path: '',
-    component: PostsComponent
-  },
-  {
-    path: ':id',
-    component: PostComponent
+    component: PostsComponent,
+    children: [
+      {
+        path: ':id',
+        component: PostComponent,
+      },
+     
+    ]
   }
+ 
 ];
 
 @NgModule({
