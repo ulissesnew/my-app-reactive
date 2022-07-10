@@ -1,8 +1,9 @@
 <ng-container *ngIf="posts$ | async as posts; else loading;" >
+  <router-outlet></router-outlet>
   <app-container> 
     <ng-container *ngFor="let post of posts">
       <app-card
-      [routerLink]="['/posts', post.id]"
+      [routerLink]="['/posts',post.id ]"
       [tag]="'posts'"
       [title]="post.title"
       [body]="post.body"
@@ -20,5 +21,4 @@
     </div>
   </div>
 </ng-template>    
-
 
