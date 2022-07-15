@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { TokenInterceptor } from './core/auth/token.interceptor';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { AddressComponent } from './core/forms/address/address.component';
+import { ContactComponent } from './core/forms/contact/contact.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [AppComponent, PageNotFoundComponent, AddressComponent, ContactComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
