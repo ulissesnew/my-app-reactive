@@ -10,6 +10,7 @@ import { TokenInterceptor } from './core/auth/token.interceptor';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { AddressComponent } from './core/forms/address/address.component';
 import { ContactComponent } from './core/forms/contact/contact.component';
+import { DirectivesModule } from './core/directives/directives.module';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent, AddressComponent, ContactComponent],
@@ -19,6 +20,7 @@ import { ContactComponent } from './core/forms/contact/contact.component';
     AppRoutingModule,
     CommonModule,
     SharedModule,
+    DirectivesModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
