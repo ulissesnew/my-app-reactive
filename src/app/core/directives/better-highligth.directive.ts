@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, HostBinding, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appBetterHighligth]'
@@ -17,12 +17,5 @@ export class BetterHighligthDirective implements OnInit {
   }
   @HostListener('click') click(eventData: Event) {
     this.renderer.setStyle(this.elementRef.nativeElement, 'border', '1px solid LightGrey')
-  }
-  @HostListener('input') input(eventData: Event) {
-    if(this.elementRef.nativeElement.classList.contains('ng-invalid')) {
-      console.log(this.elementRef.nativeElement.classList);
-      this.renderer.setStyle(this.elementRef.nativeElement, 'border', '1px solid  red')
-    }
-    this.renderer.setStyle(this.elementRef.nativeElement, 'border-radius', '20px')
   }
 }
