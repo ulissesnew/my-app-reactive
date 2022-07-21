@@ -8,20 +8,19 @@ export class FormStatusDirective implements OnInit{
   constructor(private ngControl: NgControl,private elementRef: ElementRef, private renderer: Renderer2) { }
   ngOnInit(): void {
   }
+  @HostBinding('style.border') border: string | undefined;
+
   @HostBinding('ngControl') get invalid() {
-    if(this.ngControl.control?.status === 'INVALID' && this.ngControl.touched) {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'border-radius', '20px')
-      this.renderer.setStyle(this.elementRef.nativeElement, 'border', '2px solid  red')
-    } 
-    return this.ngControl.invalid
+    this.renderer.setStyle(this.elementRef.nativeElement, 'border-radius', '20px')
+    if(this.ngControl.status === 'INVALID' && this.ngControl.touched) {
+      this.border = '2px solid  red'
+      return this.ngControl.invalid
+    } else {
+      this.border = '2px solid  blue'
+      return this.ngControl.valid
+    }
   }
 
-  @HostBinding('ngControl') get valid() {
-    if(this.ngControl.control?.status === 'VALID' && this.ngControl.touched) {
-      this.renderer.setStyle(this.elementRef.nativeElement, 'border-radius', '20px')
-      this.renderer.setStyle(this.elementRef.nativeElement, 'border', '2px solid  blue')
-    } 
-    return this.ngControl.invalid
-  }
+ 
 }
 
