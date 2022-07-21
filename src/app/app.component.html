@@ -1,13 +1,16 @@
 <nav class="navbar fixed-top navbar-dark bg-dark">
   <a routerLink="/" class="navbar-brand p-2">MyFirst App</a>
-  <a routerLink="/" class="navbar-brand p-2">Home</a>
+  <a appBetterHighligth routerLink="/" class="navbar-brand p-2">Home</a>
 </nav>
 
 <div style="margin: 80px;"></div>
-<app-container>
+<app-container >
   <app-button routerLink="/filtro-reativo"> Filtro Reativo</app-button>
   <app-button class="btn-info" routerLink="/posts">
     Posts
+  </app-button>
+  <app-button class="btn-warning" [routerLink]="['/contact' ]">
+    Contact
   </app-button>
 </app-container>
 

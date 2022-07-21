@@ -3,6 +3,7 @@
   <app-container> 
     <ng-container *ngFor="let post of posts">
       <app-card
+      appBetterHighligth
       [routerLink]="['/posts',post.id ]"
       [tag]="'posts'"
       [title]="post.title"

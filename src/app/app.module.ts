@@ -8,15 +8,19 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { TokenInterceptor } from './core/auth/token.interceptor';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { AddressComponent } from './core/forms/address/address.component';
+import { ContactComponent } from './core/forms/contact/contact.component';
+import { DirectivesModule } from './core/directives/directives.module';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent],
+  declarations: [AppComponent, PageNotFoundComponent, AddressComponent, ContactComponent],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     SharedModule,
+    DirectivesModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

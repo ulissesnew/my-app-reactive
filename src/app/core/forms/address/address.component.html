@@ -1,0 +1,94 @@
+<ng-container [formGroup]="form" >
+  <div class="col-sm-12" formGroupName="address">
+    <div class="col-12 row form-group">
+        <div class="col-sm-2">
+            <label>CEP</label>
+            <input (ngModelChange)="getCep()" 
+                [ngClass]="cssError('address.zipcode')" class="form-control"
+                formControlName="zipcode" maxlength="9"
+                placeholder="Digite o CEP" type="text">
+            <div *ngIf="hasError('address.zipcode')" class="invalid-feedback">
+                <div *ngIf="hasError('address.zipcode', 'required')">Campo obrigatório</div>
+                <div *ngIf="hasError('address.zipcode', 'minLength')">O CEP precisa ter 8 dígitos</div>
+                <div *ngIf="hasError('address.zipcode', 'invalidCep')">CEP inválido</div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <label>Logradouro</label>
+            <input [ngClass]="cssError('address.street')" class="form-control" formControlName="street"
+                placeholder="Digite o logradouro..." type="text">
+            <div *ngIf="hasError('address.street')" class="invalid-feedback">
+                <div>Campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Número</label>
+            <input [ngClass]="cssError('address.number')" class="form-control" formControlName="number"
+                placeholder="Digite o número..." type="text">
+            <div *ngIf="hasError('address.number')" class="invalid-feedback">
+                <div>Campo obrigatório</div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="col-sm-12"  formGroupName="address">
+    <div class="col-12 row form-group">
+        <div class="col-4">
+            <label>Complemento</label>
+            <input class="form-control" formControlName="complement"
+                placeholder="Digite a complemento" type="text">
+        </div>
+        <div class="col-4">
+            <label>Bairro</label>
+            <input [ngClass]="cssError('address.neighborhood')" class="form-control" formControlName="neighborhood"
+                placeholder="Digite o bairro..." type="text">
+            <div *ngIf="hasError('address.neighborhood')" class="invalid-feedback">
+                <div>Campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-4">
+            <label>Cidade</label>
+            <input [ngClass]="cssError('address.city')" class="form-control" formControlName="city"
+                placeholder="Digite a cidade..." type="text">
+            <div *ngIf="hasError('address.city')" class="invalid-feedback">
+                <div>Campo obrigatório</div>
+            </div>
+        </div>
+        <div class="col-4 mt-2">
+            <label>Estado</label>
+            <select class="form-control" formControlName="state" type="text">
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+            </select>
+            <div *ngIf="cssError('address.state')" class="invalid-feedback">
+                <div>Campo obrigatório</div>
+            </div>
+        </div>
+    </div>
+  </div>
+</ng-container>
