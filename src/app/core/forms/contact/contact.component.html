@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-5">
           <label for="name">name:</label>
-          <input appFormStatus invalidBorder="5px dashed orange" type="text" class="form-control" formControlName="name" placeholder="name">
+          <input appFormStatus="5px dashed orange"  type="text" class="form-control" formControlName="name" placeholder="name">
           <div *ngIf="hasError('name','required')">
             <span class="alert-danger"> nome invalido</span>
           </div>
