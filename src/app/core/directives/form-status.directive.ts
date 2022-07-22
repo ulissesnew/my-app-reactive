@@ -9,7 +9,7 @@ export class FormStatusDirective implements OnInit{
   ngOnInit(): void {
   }
   @Input() defaultBorder = '2px solid blue'
-  @Input() invalidBorder = '2px solid red'
+  @Input('appFormStatus') invalidBorder = '2px solid red'
   @HostBinding('style.border') border: string = this.defaultBorder;
 
   @HostBinding('ngControl') get invalid() {
