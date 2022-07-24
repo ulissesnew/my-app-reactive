@@ -5,7 +5,7 @@ import {  NgControl } from '@angular/forms';
   selector: '[appFormStatus]'
 })
 export class FormStatusDirective implements OnInit{
-  constructor(private ngControl: NgControl,private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private ngControl: NgControl, private elementRef: ElementRef, private renderer: Renderer2) { }
   ngOnInit(): void {
   }
   @Input() defaultBorder = '2px solid blue'

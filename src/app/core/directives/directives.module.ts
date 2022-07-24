@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BetterHighligthDirective } from './better-highligth.directive';
 import { FormStatusDirective } from './form-status.directive';
 import { UnlessDirective } from './unless.directive';
+import { ForDirective } from './for.directive';
 
 
 
@@ -10,11 +11,12 @@ import { UnlessDirective } from './unless.directive';
   declarations: [
     BetterHighligthDirective,
     FormStatusDirective,
-    UnlessDirective
+    UnlessDirective,
+    ForDirective
   ],
   imports: [
     CommonModule
   ], 
-  exports: [BetterHighligthDirective, FormStatusDirective, UnlessDirective]
+  exports: [BetterHighligthDirective, FormStatusDirective, UnlessDirective, ForDirective]
 })
 export class DirectivesModule { }
