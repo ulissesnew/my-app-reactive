@@ -7,3 +7,24 @@
   </p>
   <button class="btn btn-info">HOME</button>
 </div>
+
+<app-container>
+  <div *appFor="let item of [1,2,3]; 
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;
+    let size = count;
+  ">
+  <p>This is item: {{ item || '"no content"' }}</p>
+    <pre>
+      Index: {{ i }}
+      First: {{ isFirst }}
+      Last: {{ isLast }}
+      Even: {{ isEven }}
+      Odd: {{ isOdd }}
+      Count: {{ size }}
+    </pre>
+  </div> 
+</app-container>
