@@ -8,6 +8,9 @@ interface ForDirectiveContext<T> {
   even: boolean;
   odd: boolean;
   count: number;
+  order: T;
+  keys: T;
+  values: T
 }
 
 @Directive({
@@ -53,7 +56,10 @@ export class ForDirective<T> {
         last: index === arr.length -1,
         even: (index & 1) === 0,
         odd: (index & 1),
-        count: arr.length
+        count: arr.length,
+        order:  [...arr].reverse(),
+        keys: Object.keys(arr),
+        values: Object.values(arr),
       })
     })
   }
