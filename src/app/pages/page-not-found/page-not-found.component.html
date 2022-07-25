@@ -7,3 +7,48 @@
   </p>
   <button class="btn btn-info">HOME</button>
 </div>
+
+<app-container>
+  <pre   *appFor="let item of arr; 
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isEven = even;
+    let isOdd = odd;
+    let size = count;
+    let reverse = order;
+    let keys = keys;
+    let values = values;
+    "
+  >
+    First: {{ isFirst }}
+    Last: {{ isLast }}
+    Even: {{ isEven }}
+    Odd: {{ isOdd }}
+    Count: {{ size }}
+  </pre> 
+</app-container>
+
+<app-container  
+  *appFor="let item of arr;  
+  let i = index;
+  let isFirst = first;
+  let reverse = order;
+  let keys = keys;
+  let values = values;" 
+>
+  <ul  *ngIf="isFirst"
+    class="d-flex justify-content-around w-100 p-5 bg-dark" 
+    style="list-style: none; overflow-x: scroll; height: 50vh;"
+  >
+    <li class=" text-light">
+      Reverse: <pre>{{reverse | json}}</pre>
+    </li>
+    <li class=" text-info">
+      keys: <pre>{{keys | json}}</pre>
+    </li>
+    <li class=" text-success">
+    values: <pre> {{values | json}}</pre>
+    </li>
+  </ul>
+</app-container>

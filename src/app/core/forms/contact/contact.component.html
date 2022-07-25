@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-5">
           <label for="name">name:</label>
-          <input appFormStatus  appBetterHighligth type="text" class="form-control" formControlName="name" placeholder="name">
+          <input appFormStatus="5px dashed orange"  type="text" class="form-control" formControlName="name" placeholder="name">
           <div *ngIf="hasError('name','required')">
             <span class="alert-danger"> nome invalido</span>
           </div>
@@ -13,12 +13,12 @@
         </div>
         <div class="col-5">
           <label for="href">href:</label>
-          <input appFormStatus  appBetterHighligth type="url" class="form-control" formControlName="href" placeholder="url">
+          <input appFormStatus type="url" class="form-control" formControlName="href" placeholder="url">
           <div *ngIf="hasError('href','url')">
             <span class="alert-danger"> Url invalida</span>
           </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button *appUnless="this.form.status !== 'VALID'" type="submit" class="btn btn-primary">Submit</button>
   </form>
 </app-container>
